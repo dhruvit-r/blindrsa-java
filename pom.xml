@@ -11,7 +11,7 @@
 
 
   <name>blindrsa</name>
-  <description>BlindRSA library that complies with RFC 9474</description>
+  <description>RSA Blind Signature library that complies with RFC 9474</description>
   <url>https://dhruv.it/</url>
 
   <properties>
