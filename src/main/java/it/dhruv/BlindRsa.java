@@ -144,4 +144,21 @@ public class BlindRsa {
     // Signature is valid, return it
     return unblindedSignature;
   }
+
+  /**
+   * Verify the signature.
+   * 
+   * @param preparedMessage The prepared message
+   * @param finalSignature The signature
+   * @return True if the signature is valid, false otherwise
+   */
+  public boolean verify(byte[] preparedMessage, byte[] finalSignature) {
+    // Initialize the signer
+    PSSSigner signer = new PSSSigner(new RSAEngine(), new SHA384Digest(), blindRsaParams.getSaltLength());
+    signer.init(false, publicKey);
+    signer.update(preparedMessage, 0, preparedMessage.length);
+
+    // Verify the signature
+    return signer.verifySignature(finalSignature);
+  }
 }

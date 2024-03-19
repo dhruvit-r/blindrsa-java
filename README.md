@@ -35,6 +35,11 @@ public class BlindRsa {
    * Finalize the signature.
    */
   public byte[] finalize(byte[] preparedMessage, BlindedOutput blindedOutput, byte[] blindSignature);
+
+  /**
+   * Verify the signature.
+   */
+  public boolean verify(byte[] preparedMessage, byte[] finalSignature);
 }
 ```
 
